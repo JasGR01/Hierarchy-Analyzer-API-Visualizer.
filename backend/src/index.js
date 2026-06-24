@@ -27,12 +27,9 @@ const PORT = process.env.PORT || 3001;
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
 
-// CORS: evaluator calls from a different origin so we must allow all.
-// Preflight OPTIONS requests are handled automatically by the cors package.
+// CORS: Allow all origins, methods, and headers
 app.use(cors({
-  origin:         "*",
-  methods:        ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
+  origin: "*"
 }));
 
 // JSON body parser — 100kb is generous but not exploitable.
