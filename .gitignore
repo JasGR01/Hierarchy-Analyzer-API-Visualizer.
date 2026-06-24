@@ -1,0 +1,17 @@
+# ── Dependencies ─────────────────────────────────────────────
+node_modules/
+
+# ── Environment files (never commit real secrets) ─────────────
+.env
+backend/.env
+frontend/.env
+
+# ── Build output ──────────────────────────────────────────────
+frontend/dist/
+frontend/.vite/
+
+# ── macOS / editor junk ───────────────────────────────────────
+.DS_Store
+*.local
+.idea/
+.vscode/

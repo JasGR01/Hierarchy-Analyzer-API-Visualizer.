@@ -1,0 +1,49 @@
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border-radius: var(--r-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  animation: slideDown 0.25s ease both;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.loading {
+  background: rgba(109, 86, 255, 0.08);
+  border-color: rgba(109, 86, 255, 0.2);
+  color: var(--accent-light);
+}
+
+.error {
+  background: var(--red-dim);
+  border-color: var(--border-error);
+  color: var(--red);
+}
+
+.success {
+  background: var(--green-dim);
+  border-color: var(--border-success);
+  color: var(--green);
+}
+
+.icon { font-size: 0.9375rem; flex-shrink: 0; }
+
+.spinner {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(109, 86, 255, 0.25);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

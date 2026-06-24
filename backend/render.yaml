@@ -1,0 +1,31 @@
+# render.yaml
+# Infrastructure-as-code for Render.com
+# Docs: https://render.com/docs/infrastructure-as-code
+#
+# To use this file:
+#   1. Push the repo to GitHub (public)
+#   2. Go to https://dashboard.render.com → "New Blueprint Instance"
+#   3. Connect the repo → Render reads this file automatically
+#   4. Add the secret env vars (USER_ID, EMAIL_ID, COLLEGE_ROLL_NUMBER)
+#      in the Render dashboard under the service's "Environment" tab.
+
+services:
+  - type: web
+    name: bajaj-bfhl-api
+    runtime: node
+    rootDir: backend          # only the backend folder is deployed
+    buildCommand: npm install
+    startCommand: node src/index.js
+    healthCheckPath: /health  # Render polls this to confirm liveness
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      # ── Fill these in the Render dashboard (do NOT commit real values) ──
+      - key: USER_ID
+        sync: false           # marks it as a secret; set manually in dashboard
+      - key: EMAIL_ID
+        sync: false
+      - key: COLLEGE_ROLL_NUMBER
+        sync: false

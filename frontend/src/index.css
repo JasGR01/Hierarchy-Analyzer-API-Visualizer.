@@ -1,0 +1,138 @@
+/* =============================================================
+   BFHL Frontend – index.css
+   Global design tokens, resets, and base styles.
+   All component-specific styles live in their own .css files.
+   ============================================================= */
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-base:          #07070e;
+  --bg-surface:       #0f0f1a;
+  --bg-card:          rgba(255, 255, 255, 0.035);
+  --bg-card-hover:    rgba(255, 255, 255, 0.06);
+  --bg-input:         rgba(0, 0, 0, 0.4);
+  --bg-tag:           rgba(109, 86, 255, 0.12);
+
+  /* Borders */
+  --border:           rgba(255, 255, 255, 0.07);
+  --border-focus:     rgba(109, 86, 255, 0.55);
+  --border-accent:    rgba(109, 86, 255, 0.28);
+  --border-error:     rgba(255, 72, 95, 0.4);
+  --border-success:   rgba(52, 199, 130, 0.35);
+  --border-warning:   rgba(245, 165, 36, 0.35);
+
+  /* Accent palette */
+  --accent:           #6d56ff;
+  --accent-hover:     #7e6bff;
+  --accent-light:     #a594ff;
+  --accent-glow:      rgba(109, 86, 255, 0.22);
+
+  /* Semantic colours */
+  --green:            #34c782;
+  --green-dim:        rgba(52, 199, 130, 0.1);
+  --red:              #ff485f;
+  --red-dim:          rgba(255, 72, 95, 0.1);
+  --amber:            #f5a524;
+  --amber-dim:        rgba(245, 165, 36, 0.1);
+
+  /* Text */
+  --text-primary:     #eeedfb;
+  --text-secondary:   #8b87a2;
+  --text-muted:       #4e4b62;
+  --text-code:        #a594ff;
+
+  /* Spacing */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 20px;  --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
+
+  /* Radii */
+  --r-sm: 8px;  --r-md: 12px;  --r-lg: 16px;  --r-xl: 22px;  --r-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 24px rgba(0,0,0,0.5), 0 1px 0 rgba(255,255,255,0.05) inset;
+  --shadow-glow: 0 0 40px var(--accent-glow);
+  --shadow-btn:  0 4px 20px rgba(109, 86, 255, 0.35);
+
+  /* Transitions */
+  --t-fast:   0.15s ease;
+  --t-normal: 0.22s ease;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient radial glow behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(109,86,255,0.10) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dot-grid texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(109,86,255,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Typography helpers ────────────────────────────────────── */
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code {
+  background: var(--bg-tag);
+  color: var(--text-code);
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(109,86,255,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(109,86,255,0.5); }
+
+/* ── Focus visible ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

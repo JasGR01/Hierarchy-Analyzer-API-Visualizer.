@@ -1,0 +1,187 @@
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--t-normal);
+}
+
+.panel:focus-within {
+  border-color: var(--border-accent);
+}
+
+.header { margin-bottom: var(--sp-6); }
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-2);
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ── Textarea ──────────────────────────────────────────────── */
+.fieldGroup { margin-bottom: var(--sp-4); }
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-2);
+}
+
+.textarea {
+  width: 100%;
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  min-height: 160px;
+}
+
+.textarea::placeholder { color: var(--text-muted); }
+
+.textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(109, 86, 255, 0.12);
+}
+
+.textarea:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: var(--sp-2);
+}
+
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text-secondary);
+}
+
+/* ── Examples ──────────────────────────────────────────────── */
+.exampleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-6);
+}
+
+.exampleLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  margin-right: var(--sp-1);
+}
+
+.exampleBtn {
+  padding: 4px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all var(--t-fast);
+  white-space: nowrap;
+}
+
+.exampleBtn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent-light);
+  background: var(--bg-tag);
+}
+
+.exampleBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Actions ───────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 11px 28px;
+  background: linear-gradient(135deg, var(--accent) 0%, #8b6dff 100%);
+  border: none;
+  border-radius: var(--r-md);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  box-shadow: var(--shadow-btn);
+  letter-spacing: -0.1px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(109, 86, 255, 0.5);
+}
+
+.submitBtn:active:not(:disabled) { transform: translateY(0); }
+
+.submitBtn:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+
+.clearBtn {
+  padding: 11px 22px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.clearBtn:hover:not(:disabled) {
+  border-color: rgba(255,255,255,0.2);
+  color: var(--text-primary);
+}
+
+.clearBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Spinner ───────────────────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

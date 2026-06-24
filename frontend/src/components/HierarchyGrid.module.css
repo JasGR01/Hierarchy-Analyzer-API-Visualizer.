@@ -1,0 +1,158 @@
+/* ── Section header ────────────────────────────────────────── */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  background: var(--bg-tag);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--r-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  font-family: var(--font-mono);
+}
+
+.groupLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-3);
+}
+
+.cycleLabel { color: rgba(255, 72, 95, 0.65); }
+
+/* ── Grid ──────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+/* ── Card ──────────────────────────────────────────────────── */
+.card {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5);
+  transition: border-color var(--t-fast), transform var(--t-fast);
+  animation: fadeUp 0.35s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover { border-color: var(--border-accent); transform: translateY(-2px); }
+
+.cycleCard { border-color: rgba(255, 72, 95, 0.22); }
+.cycleCard:hover { border-color: rgba(255, 72, 95, 0.45); }
+
+/* ── Card header ───────────────────────────────────────────── */
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.rootLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.rootNode {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  background: var(--bg-tag);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--r-sm);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.cycleRoot {
+  color: var(--red);
+  background: var(--red-dim);
+  border-color: var(--border-error);
+}
+
+.depthBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid var(--border-success);
+  white-space: nowrap;
+}
+
+.cycleBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid var(--border-error);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Tree visualiser ───────────────────────────────────────── */
+.treeVis {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  overflow-x: auto;
+}
+
+.treeLine {
+  display: flex;
+  align-items: baseline;
+  white-space: pre;
+}
+
+.treeConnector { color: var(--text-muted); user-select: none; }
+
+.treeNode { color: var(--text-primary); font-weight: 500; }
+
+.leaf { color: var(--text-secondary); font-weight: 400; }
+
+.cycleNote,
+.leafNote {
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
