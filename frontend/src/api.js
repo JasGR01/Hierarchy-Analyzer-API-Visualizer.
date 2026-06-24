@@ -4,9 +4,7 @@
  * VITE_API_URL is injected at build time from .env
  */
 
-// In production on Vercel, the API is hosted on the same origin under /api/index.js
-// and rewritten to /bfhl at the root level.
-const BASE_URL = import.meta.env.VITE_API_URL ?? "";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 /**
  * POST /bfhl

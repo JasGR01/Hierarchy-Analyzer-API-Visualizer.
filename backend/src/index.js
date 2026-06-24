@@ -48,22 +48,13 @@ app.use((_req, res) => {
   res.status(404).json({ error: "Not found. Valid endpoints: GET /health, POST /bfhl" });
 });
 
-// ─── Start (local only) ───────────────────────────────────────────────────────
-//
-// require.main === module is true only when Node runs this file directly:
-//   node src/index.js
-//
-// When Vercel imports this file as a serverless function handler, or when
-// Jest/Supertest require() it for integration tests, this block is skipped —
-// the caller just receives the Express `app` export.
+// ─── Start ────────────────────────────────────────────────────────────────────
 
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`[BFHL] Server started on port ${PORT}`);
-    console.log(`[BFHL] Health : http://localhost:${PORT}/health`);
-    console.log(`[BFHL] API    : POST http://localhost:${PORT}/bfhl`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`[BFHL] Server started on port ${PORT}`);
+  console.log(`[BFHL] Health : http://localhost:${PORT}/health`);
+  console.log(`[BFHL] API    : POST http://localhost:${PORT}/bfhl`);
+});
 
-// Export for Vercel serverless handler, Jest/Supertest, and any future importer
+// Export for test runners
 module.exports = app;
