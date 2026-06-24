@@ -28,9 +28,6 @@ export default function App() {
               BFHL<span className={styles.logoAccent}>API</span>
             </span>
           </div>
-          <p className={styles.headerTag}>
-            Node Hierarchy Analyser &nbsp;·&nbsp; Chitkara Full Stack Challenge
-          </p>
         </div>
       </header>
 
