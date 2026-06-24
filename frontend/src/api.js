@@ -4,7 +4,8 @@
  * VITE_API_URL is injected at build time from .env
  */
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+const RAW_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+const BASE_URL = RAW_URL.replace(/\/+$/, ""); // Remove trailing slash if present
 
 /**
  * POST /bfhl
